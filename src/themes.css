@@ -1,0 +1,51 @@
+/* Every theme fills in exactly the token vocabulary declared in style.css.
+   Adding a theme = one block here + one entry in themes.ts. Nothing else. */
+
+/* ---------- Type! ---------- */
+:root[data-theme='type'] {
+  color-scheme: light;
+
+  --color-bg: #f5efeb;
+  --color-sub-alt: #e9e0d9;
+  --color-sub: #746558;
+  --color-text: #2a2421;
+  --color-main: #3d352e;
+  --color-error: #9e4e3c;
+  --color-error-extra: #7e3d2f;
+}
+
+/* ---------- Inverse Type! ---------- */
+:root[data-theme='itype'] {
+  color-scheme: light;
+
+  --color-bg: #3d352e;
+  --color-sub-alt: #4a423a;
+  --color-sub: #a89f95;
+  --color-text: #f5efeb;
+  --color-main: #f5efeb;
+  --color-error: #9e4e3c;
+  --color-error-extra: #7e3d2f;
+}
+
+/* ---------- White ---------- */
+:root[data-theme='white'] {
+  color-scheme: light;
+  --color-sub: #746558;
+  --color-text: #2a2421;
+  --color-main: #3d352e;
+  --color-error: #9e4e3c;
+  --color-error-extra: #7e3d2f;
+}
+
+/* ---------- White ---------- */
+:root[data-theme='white'] {
+  color-scheme: light;
+
+  --color-bg: #ffffff;
+  --color-sub-alt: #f4f3ec;
+  --color-sub: #646669;
+  --color-text: #08060d;
+  --color-main: #aa3bff;
+  --color-error: #b04a3d;
+  --color-error-extra: #7d2f26;
+}

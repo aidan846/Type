@@ -1,0 +1,190 @@
+@import "tailwindcss";
+@import "./themes.css";
+
+/* The theme token vocabulary. Every theme in themes.css fills in exactly
+   these; no rule below may use a raw color. Values here are the Type!
+   theme, acting as the fallback if no data-theme is set. */
+@theme {
+  --color-bg: #f5efeb;
+  --color-sub-alt: #e9e0d9;
+  --color-sub: #746558;
+  --color-text: #2a2421;
+  --color-main: #3d352e;
+  --color-error: #9e4e3c;
+  --color-error-extra: #7e3d2f;
+
+  --font-sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+}
+
+:root {
+  font: 18px/145% var(--font-sans);
+  letter-spacing: 0.18px;
+  color: var(--color-sub);
+  background: var(--color-bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Theme fade. Deliberately not applied to .word — transitioning every
+     letter makes typing feedback feel laggy. */
+  transition: background-color 0.25s ease, color 0.25s ease;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+#center {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#words {
+  width: 800px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.8rem;
+
+  font-size: 2rem;
+  line-height: 1.5;
+}
+
+.word {
+  color: var(--color-sub);
+}
+
+.navbar {
+  position: fixed;
+  top: 0.5rem;
+  left: 0;
+
+  width: 100%;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 0 2rem;
+  box-sizing: border-box;
+
+  z-index: 1000;
+
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.navbar img {
+  width: 48px;
+  height: 48px;
+  display: block;
+}
+
+.restart {
+  border: none;
+  background: none;
+  color: var(--color-sub);
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.best-label {
+  margin: 0;
+  color: var(--color-sub);
+}
+
+/* ---------- theme picker ---------- */
+
+.theme-picker {
+  position: relative;
+}
+
+.theme-toggle {
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: 0.9rem;
+  color: var(--color-sub);
+  cursor: pointer;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+}
+
+.theme-toggle:hover,
+.theme-picker[data-open='true'] .theme-toggle {
+  color: var(--color-text);
+}
+
+.theme-list {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+
+  min-width: 200px;
+  max-height: 340px;
+  overflow-y: auto;
+
+  margin: 0;
+  padding: 0.35rem;
+  list-style: none;
+
+  background: var(--color-sub-alt);
+  border: 1px solid color-mix(in srgb, var(--color-sub) 22%, transparent);
+  border-radius: 10px;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.12), 0 4px 6px -2px rgb(0 0 0 / 0.06);
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  padding: 0.45rem 0.6rem;
+  border-radius: 6px;
+
+  font-size: 0.9rem;
+  color: var(--color-sub);
+  cursor: pointer;
+}
+
+.theme-option:hover,
+.theme-option:focus {
+  background: var(--color-bg);
+  color: var(--color-text);
+  outline: none;
+}
+
+.theme-option[aria-selected='true'] {
+  color: var(--color-main);
+}
+
+.theme-swatch {
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 999px;
+
+  display: grid;
+  place-items: center;
+
+  background: var(--swatch-bg);
+  border: 1px solid color-mix(in srgb, var(--color-sub) 35%, transparent);
+}
+
+.theme-swatch::after {
+  content: '';
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 999px;
+  background: var(--swatch-main);
+}
