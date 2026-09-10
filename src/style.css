@@ -1,9 +1,6 @@
 @import "tailwindcss";
 @import "./themes.css";
 
-/* The theme token vocabulary. Every theme in themes.css fills in exactly
-   these; no rule below may use a raw color. Values here are the Type!
-   theme, acting as the fallback if no data-theme is set. */
 @theme {
   --color-bg: #f5efeb;
   --color-sub-alt: #e9e0d9;
@@ -26,13 +23,21 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* Theme fade. Deliberately not applied to .word — transitioning every
-     letter makes typing feedback feel laggy. */
   transition: background-color 0.25s ease, color 0.25s ease;
 
   @media (max-width: 1024px) {
     font-size: 16px;
   }
+}
+
+kbd {
+  padding: 0.15rem 0.4rem;
+  border: 1px solid var(--color-sub);
+  border-radius: 4px;
+  font-size: 0.85em;
+  font-family: inherit;
+  background: var(--color-sub-alt);
+  color: var(--color-text);
 }
 
 body {
@@ -49,11 +54,12 @@ body {
 }
 
 #words {
-  width: 800px;
+  width: 1000px;
 
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 0.8rem;
+  row-gap: 0.5rem;
+  column-gap: 0.8rem;
 
   font-size: 2rem;
   line-height: 1.5;
@@ -187,4 +193,27 @@ body {
   height: 0.45rem;
   border-radius: 999px;
   background: var(--swatch-main);
+}
+
+.current {
+  text-decoration: underline;
+}
+
+.correct {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.wrong {
+  color: var(--color-error);
+  text-decoration: none;
+}
+
+.space {
+  display: inline-block;
+  width: 0.5em;
+}
+
+.space.current {
+  border-bottom: 2px solid currentColor;
 }

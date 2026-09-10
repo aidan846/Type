@@ -1,6 +1,3 @@
-/* Every theme fills in exactly the token vocabulary declared in style.css.
-   Adding a theme = one block here + one entry in themes.ts. Nothing else. */
-
 /* ---------- Type! ---------- */
 :root[data-theme='type'] {
   color-scheme: light;
@@ -30,16 +27,6 @@
 /* ---------- White ---------- */
 :root[data-theme='white'] {
   color-scheme: light;
-  --color-sub: #746558;
-  --color-text: #2a2421;
-  --color-main: #3d352e;
-  --color-error: #9e4e3c;
-  --color-error-extra: #7e3d2f;
-}
-
-/* ---------- White ---------- */
-:root[data-theme='white'] {
-  color-scheme: light;
 
   --color-bg: #ffffff;
   --color-sub-alt: #f4f3ec;
@@ -48,4 +35,723 @@
   --color-main: #aa3bff;
   --color-error: #b04a3d;
   --color-error-extra: #7d2f26;
+}
+
+/* ---------- Midnight ---------- */
+
+:root[data-theme='midnight'] {
+  color-scheme: dark;
+
+  --color-bg: #11131a;
+  --color-sub-alt: #191c26;
+  --color-sub: #6f7587;
+  --color-text: #e8eaf0;
+  --color-main: #7c8cff;
+  --color-error: #ff5f73;
+  --color-error-extra: #c94053;
+}
+
+
+/* ---------- Dracula ---------- */
+
+:root[data-theme='dracula'] {
+  color-scheme: dark;
+
+  --color-bg: #282a36;
+  --color-sub-alt: #21222c;
+  --color-sub: #6272a4;
+  --color-text: #f8f8f2;
+  --color-main: #bd93f9;
+  --color-error: #ff5555;
+  --color-error-extra: #c83d3d;
+}
+
+
+/* ---------- Nord ---------- */
+
+:root[data-theme='nord'] {
+  color-scheme: dark;
+
+  --color-bg: #2e3440;
+  --color-sub-alt: #3b4252;
+  --color-sub: #7b88a1;
+  --color-text: #eceff4;
+  --color-main: #88c0d0;
+  --color-error: #bf616a;
+  --color-error-extra: #944b52;
+}
+
+
+/* ---------- Catppuccin ---------- */
+
+:root[data-theme='catppuccin'] {
+  color-scheme: dark;
+
+  --color-bg: #1e1e2e;
+  --color-sub-alt: #29293d;
+  --color-sub: #7f849c;
+  --color-text: #cdd6f4;
+  --color-main: #cba6f7;
+  --color-error: #f38ba8;
+  --color-error-extra: #c66b86;
+}
+
+
+/* ---------- Rose ---------- */
+
+:root[data-theme='rose'] {
+  color-scheme: light;
+
+  --color-bg: #fff7f8;
+  --color-sub-alt: #f7e7ea;
+  --color-sub: #9b777e;
+  --color-text: #3d282d;
+  --color-main: #d96c86;
+  --color-error: #b84157;
+  --color-error-extra: #8c3042;
+}
+
+
+/* ---------- Sakura ---------- */
+
+:root[data-theme='sakura'] {
+  color-scheme: light;
+
+  --color-bg: #fff5fa;
+  --color-sub-alt: #f8dfeb;
+  --color-sub: #a8748d;
+  --color-text: #442c38;
+  --color-main: #f08bb5;
+  --color-error: #d94f69;
+  --color-error-extra: #a9364e;
+}
+
+
+/* ---------- Matcha ---------- */
+
+:root[data-theme='matcha'] {
+  color-scheme: light;
+
+  --color-bg: #f4f7ed;
+  --color-sub-alt: #e4ead9;
+  --color-sub: #748064;
+  --color-text: #2c3326;
+  --color-main: #718b55;
+  --color-error: #b85c4a;
+  --color-error-extra: #8b4437;
+}
+
+
+/* ---------- Forest ---------- */
+
+:root[data-theme='forest'] {
+  color-scheme: dark;
+
+  --color-bg: #172019;
+  --color-sub-alt: #202c22;
+  --color-sub: #718575;
+  --color-text: #e3eadf;
+  --color-main: #7aa874;
+  --color-error: #d26858;
+  --color-error-extra: #a64b3e;
+}
+
+
+/* ---------- Evergreen ---------- */
+
+:root[data-theme='evergreen'] {
+  color-scheme: dark;
+
+  --color-bg: #0f1c18;
+  --color-sub-alt: #172923;
+  --color-sub: #688077;
+  --color-text: #e0ece7;
+  --color-main: #52b788;
+  --color-error: #e36b5b;
+  --color-error-extra: #aa4d41;
+}
+
+
+/* ---------- Ocean ---------- */
+
+:root[data-theme='ocean'] {
+  color-scheme: dark;
+
+  --color-bg: #0d1821;
+  --color-sub-alt: #142431;
+  --color-sub: #60798c;
+  --color-text: #e3f1f8;
+  --color-main: #4ea8de;
+  --color-error: #ef6461;
+  --color-error-extra: #b94a48;
+}
+
+
+/* ---------- Ice ---------- */
+
+:root[data-theme='ice'] {
+  color-scheme: light;
+
+  --color-bg: #f0f7fa;
+  --color-sub-alt: #dcecf2;
+  --color-sub: #718894;
+  --color-text: #25343d;
+  --color-main: #54a7c4;
+  --color-error: #cc5768;
+  --color-error-extra: #9c4050;
+}
+
+
+/* ---------- Arctic ---------- */
+
+:root[data-theme='arctic'] {
+  color-scheme: light;
+
+  --color-bg: #edf6f9;
+  --color-sub-alt: #d6e8ee;
+  --color-sub: #6c8791;
+  --color-text: #1d323b;
+  --color-main: #2e9cca;
+  --color-error: #db5a63;
+  --color-error-extra: #a83e47;
+}
+
+
+/* ---------- Vaporwave ---------- */
+
+:root[data-theme='vaporwave'] {
+  color-scheme: dark;
+
+  --color-bg: #171229;
+  --color-sub-alt: #251b3d;
+  --color-sub: #8672a6;
+  --color-text: #f4eaff;
+  --color-main: #f06cff;
+  --color-error: #ff557a;
+  --color-error-extra: #c93a5c;
+}
+
+
+/* ---------- Synthwave ---------- */
+
+:root[data-theme='synthwave'] {
+  color-scheme: dark;
+
+  --color-bg: #160f26;
+  --color-sub-alt: #241637;
+  --color-sub: #80659c;
+  --color-text: #f6e8ff;
+  --color-main: #ff7edb;
+  --color-error: #ff5470;
+  --color-error-extra: #c23c53;
+}
+
+
+/* ---------- Cyber ---------- */
+
+:root[data-theme='cyber'] {
+  color-scheme: dark;
+
+  --color-bg: #080b10;
+  --color-sub-alt: #111720;
+  --color-sub: #536473;
+  --color-text: #e3fff9;
+  --color-main: #00f5c4;
+  --color-error: #ff406c;
+  --color-error-extra: #bf284d;
+}
+
+
+/* ---------- Terminal ---------- */
+
+:root[data-theme='terminal'] {
+  color-scheme: dark;
+
+  --color-bg: #090d0a;
+  --color-sub-alt: #111812;
+  --color-sub: #526b57;
+  --color-text: #d6ffdc;
+  --color-main: #55ff76;
+  --color-error: #ff5b5b;
+  --color-error-extra: #bf3e3e;
+}
+
+
+/* ---------- Hacker ---------- */
+
+:root[data-theme='hacker'] {
+  color-scheme: dark;
+
+  --color-bg: #050805;
+  --color-sub-alt: #0c120d;
+  --color-sub: #3f6545;
+  --color-text: #c8ffd1;
+  --color-main: #34ff5a;
+  --color-error: #ff4141;
+  --color-error-extra: #bd2d2d;
+}
+
+
+/* ---------- Ember ---------- */
+
+:root[data-theme='ember'] {
+  color-scheme: dark;
+
+  --color-bg: #1c1512;
+  --color-sub-alt: #291e19;
+  --color-sub: #846c60;
+  --color-text: #f2e6df;
+  --color-main: #e67e45;
+  --color-error: #dd4d3e;
+  --color-error-extra: #a7372d;
+}
+
+
+/* ---------- Lava ---------- */
+
+:root[data-theme='lava'] {
+  color-scheme: dark;
+
+  --color-bg: #180c0c;
+  --color-sub-alt: #271111;
+  --color-sub: #825b57;
+  --color-text: #fbe9e4;
+  --color-main: #ff5a36;
+  --color-error: #ff3030;
+  --color-error-extra: #bf2020;
+}
+
+
+/* ---------- Sunset ---------- */
+
+:root[data-theme='sunset'] {
+  color-scheme: dark;
+
+  --color-bg: #24171c;
+  --color-sub-alt: #322027;
+  --color-sub: #94717a;
+  --color-text: #ffece5;
+  --color-main: #ff8a5c;
+  --color-error: #ed4c5c;
+  --color-error-extra: #b53645;
+}
+
+
+/* ---------- Solar ---------- */
+
+:root[data-theme='solar'] {
+  color-scheme: light;
+
+  --color-bg: #fff8df;
+  --color-sub-alt: #f4e9bd;
+  --color-sub: #887b54;
+  --color-text: #36301d;
+  --color-main: #e6a817;
+  --color-error: #c85a42;
+  --color-error-extra: #963e2c;
+}
+
+
+/* ---------- Coffee ---------- */
+
+:root[data-theme='coffee'] {
+  color-scheme: dark;
+
+  --color-bg: #211b18;
+  --color-sub-alt: #2e2621;
+  --color-sub: #85756c;
+  --color-text: #eee5df;
+  --color-main: #c38f67;
+  --color-error: #c95b50;
+  --color-error-extra: #954139;
+}
+
+
+/* ---------- Latte ---------- */
+
+:root[data-theme='latte'] {
+  color-scheme: light;
+
+  --color-bg: #f7f1e8;
+  --color-sub-alt: #eae0d2;
+  --color-sub: #86766a;
+  --color-text: #332a25;
+  --color-main: #b07d62;
+  --color-error: #b9574c;
+  --color-error-extra: #8d4038;
+}
+
+
+/* ---------- Peach ---------- */
+
+:root[data-theme='peach'] {
+  color-scheme: light;
+
+  --color-bg: #fff5ed;
+  --color-sub-alt: #f8e2d2;
+  --color-sub: #a37d6c;
+  --color-text: #422d25;
+  --color-main: #ed8b63;
+  --color-error: #d95757;
+  --color-error-extra: #a53d3d;
+}
+
+
+/* ---------- Lavender ---------- */
+
+:root[data-theme='lavender'] {
+  color-scheme: light;
+
+  --color-bg: #f7f3fc;
+  --color-sub-alt: #e9e0f4;
+  --color-sub: #80728f;
+  --color-text: #312b39;
+  --color-main: #9d7bd8;
+  --color-error: #c95868;
+  --color-error-extra: #984151;
+}
+
+
+/* ---------- Grape ---------- */
+
+:root[data-theme='grape'] {
+  color-scheme: dark;
+
+  --color-bg: #1c1625;
+  --color-sub-alt: #281e34;
+  --color-sub: #79688e;
+  --color-text: #eee6f8;
+  --color-main: #aa75e8;
+  --color-error: #df596e;
+  --color-error-extra: #a64052;
+}
+
+
+/* ---------- Neon Purple ---------- */
+
+:root[data-theme='neon-purple'] {
+  color-scheme: dark;
+
+  --color-bg: #100c18;
+  --color-sub-alt: #1b1328;
+  --color-sub: #68537f;
+  --color-text: #f5eaff;
+  --color-main: #b94cff;
+  --color-error: #ff4f76;
+  --color-error-extra: #be3654;
+}
+
+
+/* ---------- Mono ---------- */
+
+:root[data-theme='mono'] {
+  color-scheme: dark;
+
+  --color-bg: #151515;
+  --color-sub-alt: #202020;
+  --color-sub: #727272;
+  --color-text: #eeeeee;
+  --color-main: #d6d6d6;
+  --color-error: #d65b5b;
+  --color-error-extra: #9c4141;
+}
+
+
+/* ---------- Graphite ---------- */
+
+:root[data-theme='graphite'] {
+  color-scheme: dark;
+
+  --color-bg: #202124;
+  --color-sub-alt: #292a2e;
+  --color-sub: #777b83;
+  --color-text: #e8eaed;
+  --color-main: #aeb4bd;
+  --color-error: #d96767;
+  --color-error-extra: #a24b4b;
+}
+
+
+/* ---------- OLED ---------- */
+
+:root[data-theme='oled'] {
+  color-scheme: dark;
+
+  --color-bg: #000000;
+  --color-sub-alt: #111111;
+  --color-sub: #555555;
+  --color-text: #f2f2f2;
+  --color-main: #ffffff;
+  --color-error: #ff4d4d;
+  --color-error-extra: #bd3434;
+}
+
+
+/* ---------- Blueprint ---------- */
+
+:root[data-theme='blueprint'] {
+  color-scheme: dark;
+
+  --color-bg: #10263c;
+  --color-sub-alt: #183451;
+  --color-sub: #7394ad;
+  --color-text: #eaf6ff;
+  --color-main: #75c4ff;
+  --color-error: #ff6b6b;
+  --color-error-extra: #c54a4a;
+}
+
+
+/* ---------- Navy ---------- */
+
+:root[data-theme='navy'] {
+  color-scheme: dark;
+
+  --color-bg: #101827;
+  --color-sub-alt: #182337;
+  --color-sub: #67758b;
+  --color-text: #e7ecf4;
+  --color-main: #6e9de8;
+  --color-error: #df6262;
+  --color-error-extra: #a84848;
+}
+
+
+/* ---------- Mint ---------- */
+
+:root[data-theme='mint'] {
+  color-scheme: light;
+
+  --color-bg: #effaf6;
+  --color-sub-alt: #dcefe8;
+  --color-sub: #658278;
+  --color-text: #263832;
+  --color-main: #49ad8c;
+  --color-error: #cf5e5e;
+  --color-error-extra: #9c4444;
+}
+
+
+/* ---------- Candy ---------- */
+
+:root[data-theme='candy'] {
+  color-scheme: light;
+
+  --color-bg: #fff4fa;
+  --color-sub-alt: #f3e0ef;
+  --color-sub: #967891;
+  --color-text: #392b38;
+  --color-main: #d75db0;
+  --color-error: #df5266;
+  --color-error-extra: #a83a4b;
+}
+
+
+/* ---------- Bubblegum ---------- */
+
+:root[data-theme='bubblegum'] {
+  color-scheme: light;
+
+  --color-bg: #fff2f8;
+  --color-sub-alt: #f4dbea;
+  --color-sub: #a2708b;
+  --color-text: #442b38;
+  --color-main: #ff76b5;
+  --color-error: #de5368;
+  --color-error-extra: #a73b4e;
+}
+
+
+/* ---------- Retro ---------- */
+
+:root[data-theme='retro'] {
+  color-scheme: light;
+
+  --color-bg: #eee8cf;
+  --color-sub-alt: #ddd4b6;
+  --color-sub: #7f7458;
+  --color-text: #29281f;
+  --color-main: #d06f3f;
+  --color-error: #ae4540;
+  --color-error-extra: #82332f;
+}
+
+
+/* ---------- Gameboy ---------- */
+
+:root[data-theme='gameboy'] {
+  color-scheme: light;
+
+  --color-bg: #c7d5a0;
+  --color-sub-alt: #aab982;
+  --color-sub: #637047;
+  --color-text: #273224;
+  --color-main: #3d5433;
+  --color-error: #814b40;
+  --color-error-extra: #5f352e;
+}
+
+
+/* ---------- Matrix ---------- */
+
+:root[data-theme='matrix'] {
+  color-scheme: dark;
+
+  --color-bg: #020805;
+  --color-sub-alt: #07130c;
+  --color-sub: #315d40;
+  --color-text: #aaffba;
+  --color-main: #00ff41;
+  --color-error: #ff4141;
+  --color-error-extra: #ad2929;
+}
+
+
+/* ---------- Crimson ---------- */
+
+:root[data-theme='crimson'] {
+  color-scheme: dark;
+
+  --color-bg: #1a1012;
+  --color-sub-alt: #271619;
+  --color-sub: #835e64;
+  --color-text: #f2e7e9;
+  --color-main: #db4655;
+  --color-error: #ff7373;
+  --color-error-extra: #c64d4d;
+}
+
+
+/* ---------- Mustang ---------- */
+
+:root[data-theme='mustang'] {
+  color-scheme: dark;
+
+  --color-bg: #101113;
+  --color-sub-alt: #1c1d20;
+  --color-sub: #74777c;
+  --color-text: #f1f1f1;
+  --color-main: #3f75d9;
+  --color-error: #d95151;
+  --color-error-extra: #a33b3b;
+}
+
+
+/* ---------- Gulf ---------- */
+
+:root[data-theme='gulf'] {
+  color-scheme: light;
+
+  --color-bg: #f5f1e8;
+  --color-sub-alt: #dfebe8;
+  --color-sub: #6d8784;
+  --color-text: #263332;
+  --color-main: #55a9c5;
+  --color-error: #e56f46;
+  --color-error-extra: #ac4d30;
+}
+
+
+/* ---------- Miami ---------- */
+
+:root[data-theme='miami'] {
+  color-scheme: dark;
+
+  --color-bg: #12131c;
+  --color-sub-alt: #1c1d29;
+  --color-sub: #6e728a;
+  --color-text: #f6f0ff;
+  --color-main: #ff5db1;
+  --color-error: #ff6464;
+  --color-error-extra: #bf4444;
+}
+
+
+/* ---------- Cyber Blue ---------- */
+
+:root[data-theme='cyber-blue'] {
+  color-scheme: dark;
+
+  --color-bg: #071119;
+  --color-sub-alt: #0c1d29;
+  --color-sub: #527284;
+  --color-text: #e6fbff;
+  --color-main: #00c8ff;
+  --color-error: #ff4d67;
+  --color-error-extra: #bc3449;
+}
+
+
+/* ---------- Cream ---------- */
+
+:root[data-theme='cream'] {
+  color-scheme: light;
+
+  --color-bg: #faf7ef;
+  --color-sub-alt: #ebe6d9;
+  --color-sub: #777064;
+  --color-text: #292620;
+  --color-main: #575045;
+  --color-error: #ad5447;
+  --color-error-extra: #823d34;
+}
+
+
+/* ---------- Paper ---------- */
+
+:root[data-theme='paper'] {
+  color-scheme: light;
+
+  --color-bg: #f8f6f0;
+  --color-sub-alt: #ebe8df;
+  --color-sub: #77736a;
+  --color-text: #272622;
+  --color-main: #3c3b37;
+  --color-error: #b65348;
+  --color-error-extra: #874038;
+}
+
+
+/* ---------- Sepia ---------- */
+
+:root[data-theme='sepia'] {
+  color-scheme: light;
+
+  --color-bg: #f2e8d5;
+  --color-sub-alt: #e2d5bd;
+  --color-sub: #806f58;
+  --color-text: #332a20;
+  --color-main: #76583b;
+  --color-error: #a64d3f;
+  --color-error-extra: #78372e;
+}
+
+
+/* ---------- Night Sky ---------- */
+
+:root[data-theme='night-sky'] {
+  color-scheme: dark;
+
+  --color-bg: #0c1322;
+  --color-sub-alt: #141e32;
+  --color-sub: #5c6b86;
+  --color-text: #e7edfa;
+  --color-main: #7597e8;
+  --color-error: #e35f70;
+  --color-error-extra: #aa4351;
+}
+
+
+/* ---------- Aurora ---------- */
+
+:root[data-theme='aurora'] {
+  color-scheme: dark;
+
+  --color-bg: #101c20;
+  --color-sub-alt: #172a2e;
+  --color-sub: #658086;
+  --color-text: #e7f5f3;
+  --color-main: #5bd6b2;
+  --color-error: #ed6570;
+  --color-error-extra: #b54952;
 }
