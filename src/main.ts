@@ -88,7 +88,7 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 <nav class="navbar flex items-center justify-between">
   <div class="relative flex items-center justify-between w-full">
     <!-- Left section -->
-    <div class="left flex items-center gap-4">
+    <div class="left flex items-center gap-4 select-none">
       ${logoMarkup()}
       <button class="restart">↻</button>
       <p class="best-label ${bestWpm === 0 ? "hidden" : ""}">
@@ -97,13 +97,13 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
     </div>
 
     <!-- Middle section -->
-    <div class="midsection absolute left-1/2 -translate-x-1/2 flex items-center gap-4">
+    <div class="midsection absolute left-1/2 -translate-x-1/2 flex items-center gap-4 select-none">
       <p class="timer-label">0s</p>
       <!-- <p class="prev-label">wpm: 0</p> -->
     </div>
     
     <!-- Right section -->
-    <div class="right">
+    <div class="right select-none">
       ${themePickerMarkup()}
     </div>
   </div>
@@ -116,17 +116,10 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 
 document
   .querySelector<HTMLButtonElement>(".restart")!
-  .addEventListener("click", resetWords);
-
-document.addEventListener("keydown", (event) => {
-  if (
-    event.code === "Space" &&
-    document.querySelector(".results")
-  ) {
-    event.preventDefault();
+  .addEventListener("click", (event) => {
+    (event.currentTarget as HTMLButtonElement).blur();
     resetWords();
-  }
-});
+  });
 
 initThemePicker();
 input(showResults, resetWords);
