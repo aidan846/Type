@@ -55,12 +55,10 @@ body {
 
 #words {
   width: 1000px;
-
   display: flex;
   flex-wrap: wrap;
   row-gap: 0.5rem;
-  column-gap: 0.8rem;
-
+  column-gap: 0;
   font-size: 2rem;
   line-height: 1.5;
 }
@@ -211,7 +209,7 @@ body {
 
 .space {
   display: inline-block;
-  width: 0.5em;
+  width: 0.4em;
 }
 
 .space.current {

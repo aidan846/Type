@@ -22,12 +22,17 @@ let wrong = 0;
 
 let finished = false;
 
-export function input(onFinish: (stats: TypingStats) => void) {
+export function input(onFinish: (stats: TypingStats) => void, onRestart: () => void) {
     const characters = document.querySelectorAll(".character");
     characters[currentIndex].classList.add("current");
 
     document.addEventListener("keydown", (event) => { 
         if (finished) {
+            if (event.code === "Space") {
+                event.preventDefault();
+                onRestart();
+            }
+
             return;
         }
 

@@ -81,12 +81,6 @@ function showResults(stats: TypingStats) {
       </div>
     </div>
   `;
-
-  document.addEventListener("keydown", (event) => {
-    if (event.code === "Space") {
-      resetWords();
-    }
-  }, { once: true });
 }
 
 const words: string[] = await getWords(30);
@@ -124,5 +118,15 @@ document
   .querySelector<HTMLButtonElement>(".restart")!
   .addEventListener("click", resetWords);
 
+document.addEventListener("keydown", (event) => {
+  if (
+    event.code === "Space" &&
+    document.querySelector(".results")
+  ) {
+    event.preventDefault();
+    resetWords();
+  }
+});
+
 initThemePicker();
-input(showResults);
+input(showResults, resetWords);
