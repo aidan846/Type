@@ -1,5 +1,5 @@
 export async function getWords(amount: number): Promise<string[]> {
-    const response = await fetch('/words.txt');
+    const response = await fetch(`${import.meta.env.BASE_URL}words.txt`);
     const data = await response.text();
     const words = data.split(/\r?\n/).filter(word => word.trim() !== '');
 

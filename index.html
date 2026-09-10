@@ -4,11 +4,9 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>type</title>
+    <title>Type!</title>
 
     <script>
-      // Stamp the saved theme before first paint, otherwise every reload
-      // flashes the default theme. Must stay inline and ahead of the bundle.
       try {
         document.documentElement.dataset.theme =
           localStorage.getItem('theme') || 'type';
