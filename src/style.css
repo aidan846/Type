@@ -55,16 +55,25 @@ body {
 
 #words {
   width: 1000px;
+
   display: flex;
   flex-wrap: wrap;
+
   row-gap: 0.5rem;
   column-gap: 0;
+
   font-size: 2rem;
   line-height: 1.5;
+
+  height: calc(3em * 1.5 + 1rem);
+  overflow: hidden;
+
+  scroll-behavior: smooth;
 }
 
 .word {
   color: var(--color-sub);
+  white-space: nowrap;
 }
 
 .navbar {
@@ -93,6 +102,27 @@ body {
   display: block;
 }
 
+footer {
+  position: fixed;
+  bottom: 0.25rem;
+  left: 0;
+
+  width: 100%;
+  height: 60px;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 0 2rem;
+  box-sizing: border-box;
+
+  z-index: 1000;
+
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+
 .restart {
   border: none;
   background: none;
@@ -102,9 +132,32 @@ body {
   padding: 0;
 }
 
+.restart:hover {
+  color: var(--color-text);
+}
+
+
+
+.word-amount-btn {
+  border: none;
+  background: none;
+  color: var(--color-sub);
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.word-amount-btn:hover {
+  color: var(--color-text);
+}
+
 .best-label {
   margin: 0;
   color: var(--color-sub);
+}
+
+footer .best-label {
+  font-size: 0.75rem;
 }
 
 /* ---------- theme picker ---------- */
@@ -193,10 +246,6 @@ body {
   background: var(--swatch-main);
 }
 
-.current {
-  text-decoration: underline;
-}
-
 .correct {
   color: var(--color-text);
   text-decoration: none;
@@ -212,6 +261,16 @@ body {
   width: 0.4em;
 }
 
-.space.current {
-  border-bottom: 2px solid currentColor;
+.character {
+  position: relative;
+}
+
+.character.current::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.08em;
+  height: 2px;
+  background: currentColor;
 }

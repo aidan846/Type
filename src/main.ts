@@ -8,24 +8,29 @@ let bestWpm = Number(localStorage.getItem("bestWpm")) || 0;
 function renderWords(words: string[]) {
   return `
     <div id="words" class="select-none">
-    ${words
-      .map(
-        (word) => `
-          <span class="word">
-            ${word
-              .split("")
-              .map((letter) => `<span class="letter character">${letter}</span>`)
-              .join("")}
-          </span>
-        `,
-      )
-      .join('<span class="space character"> </span>')}
-  </div>
+      ${words
+        .map(
+          (word, index) => `
+            <span class="word">
+              ${word
+                .split("")
+                .map((letter) =>`<span class="letter character" data-og="${letter}">${letter}</span>`)
+                .join("")
+              }${
+                index < words.length - 1 ? `<span class="space character" data-og=" "> </span>`: ""
+              }
+            </span>
+          `
+        )
+        .join("")}
+    </div>
   `;
 }
 
+let wordAmount = 30;
+
 async function resetWords() {
-  const words: string[] = await getWords(30);
+  const words: string[] = await getWords(wordAmount);
 
   const center = document.querySelector<HTMLDivElement>("#center")!;
 
@@ -69,13 +74,35 @@ function showResults(stats: TypingStats) {
         </div>
 
         <div class="result-stat">
+          <span>words</span>
+          <strong>${stats.correctWords}/${stats.correctWords + stats.wrongWords}</strong>
+        </div>
+
+        <div class="result-stat">
+          <span>accuracy</span>
+          <strong>${stats.wordAccuracy}%</strong>
+        </div>
+
+        <br>
+        <div class="result-stat">
           <span>characters</span>
           <strong>${stats.characters}</strong>
         </div>
 
-        <p>backtracks: ${stats.backtracks}</p>
-        <p>correct: ${stats.correct}</p>
-        <p>wrong: ${stats.wrong}</p>
+        <div class="result-stat">
+          <span>backtracks</span>
+          <strong>${stats.backtracks}</strong>
+        </div>
+
+        <div class="result-stat">
+          <span>correct</span>
+          <strong>${stats.correct}</strong>
+        </div>
+
+        <div class="result-stat">
+          <span>wrong</span>
+          <strong>${stats.wrong}</strong>
+        </div>
         <br>
         <p>press <kbd>Space</kbd> to restart</p>
       </div>
@@ -83,7 +110,7 @@ function showResults(stats: TypingStats) {
   `;
 }
 
-const words: string[] = await getWords(30);
+const words: string[] = await getWords(wordAmount);
 document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 <nav class="navbar flex items-center justify-between">
   <div class="relative flex items-center justify-between w-full">
@@ -91,9 +118,10 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
     <div class="left flex items-center gap-4 select-none">
       ${logoMarkup()}
       <button class="restart">↻</button>
-      <p class="best-label ${bestWpm === 0 ? "hidden" : ""}">
-        best: ${bestWpm} wpm
-      </p>
+      <button class="word-amount-btn" data-amount="15">15</button>
+      <button class="word-amount-btn" data-amount="30">30</button>
+      <button class="word-amount-btn" data-amount="60">60</button>
+      <button class="word-amount-btn" data-amount="120">120</button>
     </div>
 
     <!-- Middle section -->
@@ -112,6 +140,15 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
 <section id="center">
   ${renderWords(words)}
 </section>
+
+<footer class="flex items-center justify-between">
+  <!-- Left section -->
+  <div class="left flex items-center gap-4 select-none">
+    <p class="best-label ${bestWpm === 0 ? "hidden" : ""}">
+      best: ${bestWpm} wpm
+    </p>
+  </div>
+</footer>
 `;
 
 document
@@ -119,6 +156,16 @@ document
   .addEventListener("click", (event) => {
     (event.currentTarget as HTMLButtonElement).blur();
     resetWords();
+  });
+
+document
+  .querySelectorAll<HTMLButtonElement>(".word-amount-btn")
+  .forEach((button) => {
+    button.addEventListener("click", () => {
+      wordAmount = Number(button.dataset.amount);
+      resetWords();
+      button.blur();
+    });
   });
 
 initThemePicker();
