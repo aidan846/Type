@@ -2,8 +2,16 @@ import "./style.css";
 import { getWords } from "./getWords.ts";
 import { themePickerMarkup, initThemePicker, logoMarkup } from "./theme.ts";
 import { input, resetTyping, type TypingStats } from './type.ts';
+import { StorageKeys, getStorageItem, setStorageItem } from './storage.ts';
 
-let bestWpm = Number(localStorage.getItem("bestWpm")) || 0;
+function getWpmKey(amount: number): keyof typeof StorageKeys {
+  return `wpm${amount}` as keyof typeof StorageKeys;
+}
+
+let wordAmount = Number(getStorageItem(StorageKeys.mode)) || 30;
+let bestWpm = Number(getStorageItem(getWpmKey(wordAmount))) || 0;
+
+//let bestWpm = Number(localStorage.getItem("bestWpm")) || 0;
 
 function renderWords(words: string[]) {
   return `
@@ -27,7 +35,17 @@ function renderWords(words: string[]) {
   `;
 }
 
-let wordAmount = 30;
+function updateBestLabel(wpm: number) {
+  const bestLabel = document.querySelector(".best-label")!;
+  if(!bestLabel) return;
+
+  if (wpm > 0) {
+    bestLabel.textContent = `${wpm} wpm`;
+    bestLabel.classList.remove("hidden");
+  } else {
+    bestLabel.classList.add("hidden");
+  }
+}
 
 async function resetWords() {
   const words: string[] = await getWords(wordAmount);
@@ -49,16 +67,15 @@ function showResults(stats: TypingStats) {
   const midsection = document.querySelectorAll(".midsection")
   midsection.forEach((section) => section.classList.add("hidden"));
 
-  const bestLabel = document.querySelector(".best-label")!;
+  const currentKey = getWpmKey(wordAmount);
+  let currentBest = Number(getStorageItem(currentKey)) || 0;
 
-  if (stats.wpm > bestWpm) {
-    bestWpm = stats.wpm;
-
-    localStorage.setItem("bestWpm", bestWpm.toString());
-
-    bestLabel.textContent = `best: ${bestWpm} wpm`;
-    bestLabel.classList.remove("hidden");
+  if (stats.wpm > currentBest) {
+    currentBest = stats.wpm;
+    setStorageItem(currentKey, currentBest.toString());
   }
+
+  updateBestLabel(currentBest);
 
   center.innerHTML = `
     <div class="results">
@@ -118,10 +135,10 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
     <div class="left flex items-center gap-4 select-none">
       ${logoMarkup()}
       <button class="restart">↻</button>
-      <button class="word-amount-btn" data-amount="15">15</button>
-      <button class="word-amount-btn" data-amount="30">30</button>
-      <button class="word-amount-btn" data-amount="60">60</button>
-      <button class="word-amount-btn" data-amount="120">120</button>
+      <button class="word-amount-btn ${wordAmount === 15 ? 'active' : ''}" data-amount="15">15</button>
+      <button class="word-amount-btn ${wordAmount === 30 ? 'active' : ''}" data-amount="30">30</button>
+      <button class="word-amount-btn ${wordAmount === 60 ? 'active' : ''}" data-amount="60">60</button>
+      <button class="word-amount-btn ${wordAmount === 120 ? 'active' : ''}" data-amount="120">120</button>
     </div>
 
     <!-- Middle section -->
@@ -163,6 +180,15 @@ document
   .forEach((button) => {
     button.addEventListener("click", () => {
       wordAmount = Number(button.dataset.amount);
+
+      setStorageItem(StorageKeys.mode, wordAmount.toString());
+
+      document.querySelectorAll(".word-amount-btn").forEach((btn) => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      const newBest = Number(getStorageItem(getWpmKey(wordAmount))) || 0;
+      updateBestLabel(newBest);
+
       resetWords();
       button.blur();
     });

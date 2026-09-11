@@ -1,10 +1,6 @@
 export interface Theme {
-  /** Value of the `data-theme` attribute on <html>. Must match a block in themes.css. */
   id: string;
-  /** Label shown in the theme dropdown. */
   name: string;
-  /** Swatch colors, duplicated from themes.css so the dropdown can preview
-      a theme without it being applied. Keep in sync with the CSS block. */
   bg: string;
   main: string;
 }

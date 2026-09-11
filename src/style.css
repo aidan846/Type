@@ -147,7 +147,8 @@ footer {
   padding: 0;
 }
 
-.word-amount-btn:hover {
+.word-amount-btn:hover,
+.word-amount-btn.active {
   color: var(--color-text);
 }
 
